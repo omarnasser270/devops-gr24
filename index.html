@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoDrive Motors</title>
+<title>GreenDrive Automotive</title>
 
 <style>
 *{
@@ -13,24 +13,29 @@
     font-family:Arial,Helvetica,sans-serif;
 }
 
-body{
-    background:#f4f4f4;
-    color:#333;
+html{
+    scroll-behavior:smooth;
 }
 
+body{
+    background:#eef8ef;
+    color:#222;
+}
+
+/* Navigation */
 header{
-    background:#111;
-    color:white;
-    padding:20px 8%;
+    background:#0b5d1e;
+    padding:18px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     position:sticky;
     top:0;
+    z-index:1000;
 }
 
 header h1{
-    color:#ff3c00;
+    color:#9dfc6b;
 }
 
 nav a{
@@ -41,56 +46,58 @@ nav a{
 }
 
 nav a:hover{
-    color:#ff3c00;
+    color:#9dfc6b;
 }
 
+/* Hero */
 .hero{
     height:90vh;
-    background:url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80") center/cover;
+    background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+}
+
+.overlay{
+    background:rgba(0,50,0,.65);
+    padding:50px;
+    border-radius:15px;
     color:white;
 }
 
-.hero-content{
-    background:rgba(0,0,0,.6);
-    padding:40px;
-    border-radius:10px;
-}
-
 .hero h2{
-    font-size:50px;
+    font-size:52px;
     margin-bottom:20px;
 }
 
 .hero p{
     font-size:20px;
-    margin-bottom:30px;
+    margin-bottom:25px;
 }
 
 .btn{
-    background:#ff3c00;
-    color:white;
-    padding:15px 35px;
-    text-decoration:none;
-    border-radius:30px;
     display:inline-block;
-    transition:.3s;
+    background:#2e8b57;
+    color:white;
+    text-decoration:none;
+    padding:14px 35px;
+    border-radius:30px;
 }
 
 .btn:hover{
-    background:#d62f00;
+    background:#14532d;
 }
 
+/* Sections */
 section{
-    padding:80px 8%;
+    padding:70px 8%;
 }
 
-.section-title{
+.title{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:40px;
+    color:#0b5d1e;
     font-size:36px;
 }
 
@@ -102,9 +109,9 @@ section{
 
 .card{
     background:white;
-    border-radius:10px;
+    border-radius:12px;
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
     transition:.3s;
 }
 
@@ -122,68 +129,67 @@ section{
     padding:20px;
 }
 
-.card-body h3{
+.card h3{
     margin-bottom:10px;
 }
 
 .price{
-    color:#ff3c00;
-    font-size:22px;
+    color:#0b8f3c;
+    font-size:24px;
     margin:15px 0;
+    font-weight:bold;
 }
 
 button{
     width:100%;
     padding:12px;
     border:none;
-    background:#111;
+    background:#0b5d1e;
     color:white;
     cursor:pointer;
     border-radius:5px;
-    transition:.3s;
+    font-size:16px;
 }
 
 button:hover{
-    background:#ff3c00;
+    background:#2e8b57;
 }
 
+/* About */
 .about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:40px;
-    align-items:center;
+    background:white;
+    border-radius:12px;
+    padding:40px;
+    text-align:center;
+    line-height:1.8;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-.about img{
-    width:100%;
-    border-radius:10px;
-}
-
+/* Contact */
 .contact{
-    background:#222;
+    background:#14532d;
     color:white;
 }
 
 form{
-    max-width:700px;
+    max-width:650px;
     margin:auto;
 }
 
 input,textarea{
     width:100%;
     padding:15px;
-    margin-bottom:20px;
+    margin-bottom:15px;
     border:none;
     border-radius:5px;
 }
 
 textarea{
-    resize:vertical;
-    height:150px;
+    height:140px;
 }
 
 footer{
-    background:#111;
+    background:#083515;
     color:white;
     text-align:center;
     padding:20px;
@@ -191,12 +197,8 @@ footer{
 
 @media(max-width:768px){
 
-.about{
-grid-template-columns:1fr;
-}
-
 .hero h2{
-font-size:36px;
+    font-size:36px;
 }
 
 }
@@ -206,7 +208,7 @@ font-size:36px;
 <body>
 
 <header>
-<h1>AutoDrive</h1>
+<h1>GreenDrive</h1>
 
 <nav>
 <a href="#home">Home</a>
@@ -217,66 +219,46 @@ font-size:36px;
 </header>
 
 <section class="hero" id="home">
-
-<div class="hero-content">
-<h2>Drive Your Dream Car</h2>
-
-<p>Luxury • Performance • Reliability</p>
-
-<a href="#cars" class="btn">Browse Inventory</a>
-
+<div class="overlay">
+<h2>Find Your Perfect Ride</h2>
+<p>Premium Cars • Great Prices • Trusted Service</p>
+<a href="#cars" class="btn">Browse Cars</a>
 </div>
-
 </section>
 
 <section id="cars">
 
-<h2 class="section-title">Featured Vehicles</h2>
+<h2 class="title">Featured Vehicles</h2>
 
 <div class="cars">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80">
-
-<div class="card-body">
-<h3>2025 Sport Coupe</h3>
-
-<p>Turbocharged engine, premium interior, advanced safety.</p>
-
-<div class="price">$48,500</div>
-
-<button onclick="buyCar('Sport Coupe')">Request Quote</button>
-
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=800&q=80">
-
+<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80">
 <div class="card-body">
 <h3>Luxury SUV</h3>
-
-<p>Comfort, technology, and all-wheel drive.</p>
-
-<div class="price">$62,900</div>
-
+<p>Spacious, powerful, and packed with premium features.</p>
+<div class="price">$52,900</div>
 <button onclick="buyCar('Luxury SUV')">Request Quote</button>
-
 </div>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80">
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80">
+<div class="card-body">
+<h3>Sport Coupe</h3>
+<p>Turbo performance with sleek modern styling.</p>
+<div class="price">$48,500</div>
+<button onclick="buyCar('Sport Coupe')">Request Quote</button>
+</div>
+</div>
 
+<div class="card">
+<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80">
 <div class="card-body">
 <h3>Electric Sedan</h3>
-
-<p>Long range, fast charging, zero emissions.</p>
-
-<div class="price">$54,800</div>
-
+<p>Fast charging, long range, and zero emissions.</p>
+<div class="price">$44,800</div>
 <button onclick="buyCar('Electric Sedan')">Request Quote</button>
-
 </div>
 </div>
 
@@ -286,102 +268,45 @@ font-size:36px;
 
 <section id="about">
 
-<h2 class="section-title">About Us</h2>
+<h2 class="title">About GreenDrive</h2>
 
 <div class="about">
-
-<div>
-
-<h3>AutoDrive Motors</h3>
-
-<br>
-
 <p>
-AutoDrive Motors offers premium vehicles with competitive pricing,
-professional customer service, and flexible financing options.
-Whether you're looking for a sports car, SUV, or electric vehicle,
-we have the perfect ride for every driver.
+GreenDrive Automotive offers quality new and pre-owned vehicles with
+competitive pricing, financing options, and exceptional customer service.
+Our mission is to help every customer drive away in the perfect vehicle.
 </p>
-
-<br>
-
-<p>
-✔ Certified Vehicles<br>
-✔ Financing Available<br>
-✔ Extended Warranty<br>
-✔ Nationwide Delivery
-</p>
-
-</div>
-
-<div>
-
-<img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=900&q=80">
-
-</div>
-
 </div>
 
 </section>
 
 <section class="contact" id="contact">
 
-<h2 class="section-title">Contact Us</h2>
+<h2 class="title" style="color:white;">Contact Us</h2>
 
-<form onsubmit="sendMessage(event)">
-
+<form onsubmit="sendForm(event)">
 <input type="text" placeholder="Your Name" required>
-
 <input type="email" placeholder="Email Address" required>
-
-<textarea placeholder="Tell us which vehicle interests you..."></textarea>
-
+<textarea placeholder="Message"></textarea>
 <button type="submit">Send Message</button>
-
 </form>
 
 </section>
 
 <footer>
-
-<p>© 2026 AutoDrive Motors. All Rights Reserved.</p>
-
+<p>&copy; 2026 GreenDrive Automotive. All Rights Reserved.</p>
 </footer>
 
 <script>
-
 function buyCar(car){
-
-alert("Thank you for your interest in the " + car + "! Our sales team will contact you soon.");
-
+    alert("Thank you for your interest in the " + car + "!");
 }
 
-function sendMessage(e){
-
-e.preventDefault();
-
-alert("Your message has been sent successfully!");
-
-e.target.reset();
-
+function sendForm(e){
+    e.preventDefault();
+    alert("Your message has been sent successfully!");
+    e.target.reset();
 }
-
-document.querySelectorAll("nav a").forEach(link=>{
-
-link.addEventListener("click",function(e){
-
-e.preventDefault();
-
-document.querySelector(this.getAttribute("href")).scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-});
-
-});
-
 </script>
 
 </body>
