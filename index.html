@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreenDrive Automotive</title>
+
+<title>DriveRent - Car Rental</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 html{
@@ -18,14 +20,15 @@ html{
 }
 
 body{
-    background:#eef8ef;
+    background:#f5f7fb;
     color:#222;
 }
 
-/* Navigation */
+/* Header */
 header{
-    background:#0b5d1e;
-    padding:18px 8%;
+    background:#111827;
+    color:white;
+    padding:20px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -34,280 +37,474 @@ header{
     z-index:1000;
 }
 
-header h1{
-    color:#9dfc6b;
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff4d30;
 }
 
 nav a{
     color:white;
     text-decoration:none;
     margin-left:20px;
-    transition:.3s;
 }
 
 nav a:hover{
-    color:#9dfc6b;
+    color:#ff4d30;
 }
 
+
 /* Hero */
+
 .hero{
+
     height:90vh;
-    background:url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80");
+
+    background-size:cover;
+    background-position:center;
+
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-}
-
-.overlay{
-    background:rgba(0,50,0,.65);
-    padding:50px;
-    border-radius:15px;
     color:white;
 }
 
-.hero h2{
-    font-size:52px;
+
+.hero h1{
+    font-size:55px;
     margin-bottom:20px;
 }
 
 .hero p{
     font-size:20px;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
+
 .btn{
-    display:inline-block;
-    background:#2e8b57;
+
+    background:#ff4d30;
     color:white;
+    padding:15px 35px;
     text-decoration:none;
-    padding:14px 35px;
     border-radius:30px;
+
 }
 
 .btn:hover{
-    background:#14532d;
+    background:#d9361e;
 }
 
+
 /* Sections */
+
 section{
     padding:70px 8%;
 }
 
+
 .title{
     text-align:center;
-    margin-bottom:40px;
-    color:#0b5d1e;
     font-size:36px;
+    margin-bottom:40px;
+    color:#111827;
 }
 
+
+
+/* Cars */
+
 .cars{
+
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
+
 }
 
+
 .card{
+
     background:white;
-    border-radius:12px;
+    border-radius:15px;
     overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
     transition:.3s;
+
 }
+
 
 .card:hover{
     transform:translateY(-8px);
 }
 
+
 .card img{
+
     width:100%;
     height:220px;
     object-fit:cover;
+
 }
+
 
 .card-body{
+
     padding:20px;
+
 }
+
 
 .card h3{
+
     margin-bottom:10px;
+
 }
+
 
 .price{
-    color:#0b8f3c;
+
+    color:#ff4d30;
     font-size:24px;
-    margin:15px 0;
     font-weight:bold;
+    margin:15px 0;
+
 }
+
 
 button{
+
     width:100%;
     padding:12px;
-    border:none;
-    background:#0b5d1e;
+    background:#111827;
     color:white;
-    cursor:pointer;
+    border:none;
     border-radius:5px;
-    font-size:16px;
+    cursor:pointer;
+
 }
+
 
 button:hover{
-    background:#2e8b57;
+
+    background:#ff4d30;
+
 }
 
-/* About */
-.about{
-    background:white;
-    border-radius:12px;
-    padding:40px;
-    text-align:center;
-    line-height:1.8;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+
+/* Services */
+
+.services{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+
 }
+
+
+.service{
+
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+
+}
+
+
 
 /* Contact */
+
 .contact{
-    background:#14532d;
+
+    background:#111827;
     color:white;
+
 }
+
 
 form{
-    max-width:650px;
+
+    max-width:600px;
     margin:auto;
+
 }
 
+
 input,textarea{
+
     width:100%;
     padding:15px;
     margin-bottom:15px;
     border:none;
     border-radius:5px;
+
 }
+
 
 textarea{
-    height:140px;
+
+    height:130px;
+
 }
 
+
 footer{
-    background:#083515;
+
+    background:#000;
     color:white;
     text-align:center;
     padding:20px;
-}
-
-@media(max-width:768px){
-
-.hero h2{
-    font-size:36px;
-}
 
 }
+
+
+
+@media(max-width:700px){
+
+.hero h1{
+    font-size:35px;
+}
+
+header{
+    flex-direction:column;
+}
+
+nav{
+    margin-top:15px;
+}
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-<h1>GreenDrive</h1>
+
+<div class="logo">
+DriveRent
+</div>
+
 
 <nav>
+
 <a href="#home">Home</a>
 <a href="#cars">Cars</a>
-<a href="#about">About</a>
+<a href="#services">Services</a>
 <a href="#contact">Contact</a>
+
 </nav>
+
 </header>
 
+
+
 <section class="hero" id="home">
-<div class="overlay">
-<h2>Find Your Perfect Ride</h2>
-<p>Premium Cars • Great Prices • Trusted Service</p>
-<a href="#cars" class="btn">Browse Cars</a>
+
+<div>
+
+<h1>Rent Your Dream Car</h1>
+
+<p>Affordable • Reliable • Fast Car Rental Service</p>
+
+<a class="btn" href="#cars">View Cars</a>
+
 </div>
+
 </section>
+
+
 
 <section id="cars">
 
-<h2 class="title">Featured Vehicles</h2>
+<h2 class="title">Available Cars</h2>
+
 
 <div class="cars">
 
+
 <div class="card">
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80">
+
+<div class="card-body">
+
+<h3>BMW Sports Car</h3>
+
+<p>Luxury performance vehicle for business and pleasure.</p>
+
+<div class="price">$120 / Day</div>
+
+<button onclick="rent('BMW Sports Car')">
+Rent Now
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
 <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80">
+
 <div class="card-body">
-<h3>Luxury SUV</h3>
-<p>Spacious, powerful, and packed with premium features.</p>
-<div class="price">$52,900</div>
-<button onclick="buyCar('Luxury SUV')">Request Quote</button>
-</div>
+
+<h3>Premium SUV</h3>
+
+<p>Comfortable family SUV with advanced features.</p>
+
+<div class="price">$90 / Day</div>
+
+<button onclick="rent('Premium SUV')">
+Rent Now
+</button>
+
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80">
-<div class="card-body">
-<h3>Sport Coupe</h3>
-<p>Turbo performance with sleek modern styling.</p>
-<div class="price">$48,500</div>
-<button onclick="buyCar('Sport Coupe')">Request Quote</button>
-</div>
 </div>
 
+
+
+
 <div class="card">
+
 <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80">
+
 <div class="card-body">
-<h3>Electric Sedan</h3>
-<p>Fast charging, long range, and zero emissions.</p>
-<div class="price">$44,800</div>
-<button onclick="buyCar('Electric Sedan')">Request Quote</button>
+
+<h3>Electric Car</h3>
+
+<p>Eco-friendly vehicle with modern technology.</p>
+
+<div class="price">$80 / Day</div>
+
+<button onclick="rent('Electric Car')">
+Rent Now
+</button>
+
 </div>
+
 </div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+<section id="services">
+
+<h2 class="title">Our Services</h2>
+
+
+<div class="services">
+
+<div class="service">
+<h3>24/7 Support</h3>
+<p>Customer assistance anytime.</p>
+</div>
+
+
+<div class="service">
+<h3>Insurance</h3>
+<p>Safe and secure rental experience.</p>
+</div>
+
+
+<div class="service">
+<h3>Airport Pickup</h3>
+<p>Convenient vehicle delivery.</p>
+</div>
+
 
 </div>
 
 </section>
 
-<section id="about">
 
-<h2 class="title">About GreenDrive</h2>
 
-<div class="about">
-<p>
-GreenDrive Automotive offers quality new and pre-owned vehicles with
-competitive pricing, financing options, and exceptional customer service.
-Our mission is to help every customer drive away in the perfect vehicle.
-</p>
-</div>
 
-</section>
 
 <section class="contact" id="contact">
 
-<h2 class="title" style="color:white;">Contact Us</h2>
 
-<form onsubmit="sendForm(event)">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Email Address" required>
-<textarea placeholder="Message"></textarea>
-<button type="submit">Send Message</button>
+<h2 class="title" style="color:white">
+Contact Us
+</h2>
+
+
+<form onsubmit="sendMessage(event)">
+
+<input placeholder="Your Name" required>
+
+<input type="email" placeholder="Email" required>
+
+<textarea placeholder="Your Message"></textarea>
+
+
+<button>
+Send Message
+</button>
+
+
 </form>
+
 
 </section>
 
+
+
+
 <footer>
-<p>&copy; 2026 GreenDrive Automotive. All Rights Reserved.</p>
+
+<p>
+© 2026 DriveRent. All Rights Reserved.
+</p>
+
 </footer>
 
+
+
+
 <script>
-function buyCar(car){
-    alert("Thank you for your interest in the " + car + "!");
+
+function rent(car){
+
+alert("You selected: " + car + ". Our rental team will contact you.");
+
 }
 
-function sendForm(e){
-    e.preventDefault();
-    alert("Your message has been sent successfully!");
-    e.target.reset();
+
+function sendMessage(e){
+
+e.preventDefault();
+
+alert("Message sent successfully!");
+
+e.target.reset();
+
 }
+
+
 </script>
 
+
+
 </body>
-</html>
+</html> 
