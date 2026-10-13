@@ -2,509 +2,510 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DriveRent - Car Rental</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurelio Motors — Drive the Future</title>
 <style>
+  :root {
+    --bg: #090b10;
+    --bg-2: #0f131b;
+    --card: #141923;
+    --line: #232a38;
+    --text: #eceef2;
+    --muted: #9097a5;
+    --accent: #19e3c1;
+    --accent-2: #6d7cff;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { width: min(1180px, 92%); margin-inline: auto; }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
+  /* NAV */
+  header {
+    position: fixed; inset: 0 0 auto 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    background: rgba(9,11,16,.72);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-weight: 800; letter-spacing: .22em; font-size: 1.1rem; text-transform: uppercase; }
+  .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 32px; list-style: none; }
+  nav a { color: var(--muted); font-size: .92rem; transition: color .2s; }
+  nav a:hover { color: var(--text); }
+  .btn {
+    display: inline-block; padding: 13px 28px; border-radius: 999px;
+    font-weight: 600; font-size: .95rem; border: 1px solid transparent;
+    cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #111; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px var(--accent); }
+  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--text); }
+  .menu-btn { display: none; background: none; border: 0; color: var(--text); font-size: 1.6rem; cursor: pointer; }
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#f5f7fb;
-    color:#222;
-}
-
-/* Header */
-header{
-    background:#111827;
-    color:white;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#ff4d30;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-}
-
-nav a:hover{
-    color:#ff4d30;
-}
-
-
-/* Hero */
-
-.hero{
-
-    height:90vh;
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: grid; align-items: center;
+    padding-top: 100px; position: relative; overflow: hidden;
     background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&q=80");
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-}
-
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    font-size:20px;
-    margin-bottom:30px;
-}
-
-
-.btn{
-
-    background:#ff4d30;
-    color:white;
-    padding:15px 35px;
-    text-decoration:none;
-    border-radius:30px;
-
-}
-
-.btn:hover{
-    background:#d9361e;
-}
-
-
-/* Sections */
-
-section{
-    padding:70px 8%;
-}
-
-
-.title{
-    text-align:center;
-    font-size:36px;
-    margin-bottom:40px;
-    color:#111827;
-}
-
-
-
-/* Cars */
-
-.cars{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-
-}
-
-
-.card{
-
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,.15);
-    transition:.3s;
-
-}
-
-
-.card:hover{
-    transform:translateY(-8px);
-}
-
-
-.card img{
-
-    width:100%;
-    height:220px;
-    object-fit:cover;
-
-}
-
-
-.card-body{
-
-    padding:20px;
-
-}
-
-
-.card h3{
-
-    margin-bottom:10px;
-
-}
-
-
-.price{
-
-    color:#ff4d30;
-    font-size:24px;
-    font-weight:bold;
-    margin:15px 0;
-
-}
-
-
-button{
-
-    width:100%;
-    padding:12px;
-    background:#111827;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-
-}
-
-
-button:hover{
-
-    background:#ff4d30;
-
-}
-
-
-
-/* Services */
-
-.services{
-
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-
-}
-
-
-.service{
-
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:10px;
-
-}
-
-
-
-/* Contact */
-
-.contact{
-
-    background:#111827;
-    color:white;
-
-}
-
-
-form{
-
-    max-width:600px;
-    margin:auto;
-
-}
-
-
-input,textarea{
-
-    width:100%;
-    padding:15px;
-    margin-bottom:15px;
-    border:none;
-    border-radius:5px;
-
-}
-
-
-textarea{
-
-    height:130px;
-
-}
-
-
-footer{
-
-    background:#000;
-    color:white;
-    text-align:center;
-    padding:20px;
-
-}
-
-
-
-@media(max-width:700px){
-
-.hero h1{
-    font-size:35px;
-}
-
-header{
-    flex-direction:column;
-}
-
-nav{
-    margin-top:15px;
-}
-
-}
-
+      radial-gradient(900px 500px at 75% 55%, rgba(25,227,193,.22), transparent 60%),
+      radial-gradient(700px 400px at 10% 10%, rgba(109,124,255,.08), transparent 60%),
+      var(--bg);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+  .eyebrow { color: var(--accent); font-size: .8rem; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; }
+  h1 { font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.02; margin: 16px 0 22px; letter-spacing: -.02em; }
+  h1 em { font-style: normal; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p.lead { color: var(--muted); font-size: 1.1rem; max-width: 520px; margin-bottom: 34px; }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .stats { display: flex; gap: 42px; margin-top: 56px; flex-wrap: wrap; }
+  .stats strong { display: block; font-size: 2rem; letter-spacing: -.01em; }
+  .stats span { color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; }
+  .hero-car { width: 100%; filter: drop-shadow(0 40px 60px rgba(25,227,193,.25)); animation: float 6s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-12px); } }
+
+  /* SECTIONS */
+  section { padding: 110px 0; }
+  .section-head { max-width: 640px; margin-bottom: 56px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.02em; line-height: 1.1; margin: 12px 0 14px; }
+  .section-head p { color: var(--muted); }
+
+  /* MODELS */
+  .tabs { display: flex; gap: 10px; margin-bottom: 36px; flex-wrap: wrap; }
+  .tab {
+    padding: 9px 20px; border-radius: 999px; background: transparent;
+    border: 1px solid var(--line); color: var(--muted); cursor: pointer; font-size: .9rem; transition: .2s;
+  }
+  .tab.active, .tab:hover { color: var(--text); border-color: var(--accent); }
+  .tab.active { background: rgba(25,227,193,.12); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; transition: transform .3s, border-color .3s;
+  }
+  .card:hover { transform: translateY(-6px); border-color: #3a404d; }
+  .card.hide { display: none; }
+  .card-img { height: 190px; display: grid; place-items: center; background: linear-gradient(160deg, #1d2129, #12141a); }
+  .card-img svg { width: 78%; }
+  .card-body { padding: 24px; }
+  .tag { font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; color: var(--accent-2); font-weight: 700; }
+  .card h3 { font-size: 1.35rem; margin: 6px 0 14px; }
+  .specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px 0; border-block: 1px solid var(--line); margin-bottom: 18px; }
+  .specs div { font-size: .75rem; color: var(--muted); }
+  .specs b { display: block; color: var(--text); font-size: 1rem; }
+  .price-row { display: flex; align-items: center; justify-content: space-between; }
+  .price { font-size: 1.2rem; font-weight: 700; }
+  .price small { color: var(--muted); font-weight: 400; font-size: .75rem; }
+  .link { color: var(--accent); font-weight: 600; font-size: .9rem; }
+
+  /* FEATURES */
+  .features { background: var(--bg-2); border-block: 1px solid var(--line); }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
+  .feature { padding: 30px; border-radius: var(--radius); background: var(--card); border: 1px solid var(--line); }
+  .icon {
+    width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 1.4rem;
+    background: rgba(25,227,193,.12); margin-bottom: 18px;
+  }
+  .feature h4 { margin-bottom: 8px; font-size: 1.1rem; }
+  .feature p { color: var(--muted); font-size: .93rem; }
+
+  /* CONFIGURATOR */
+  .config { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  .config-preview {
+    border-radius: var(--radius); border: 1px solid var(--line); padding: 40px;
+    background: radial-gradient(circle at 50% 60%, rgba(255,255,255,.06), transparent 65%), var(--card);
+  }
+  .config-preview svg { width: 100%; }
+  .swatches { display: flex; gap: 12px; margin: 18px 0 28px; }
+  .swatch { width: 38px; height: 38px; border-radius: 50%; border: 2px solid transparent; outline: 1px solid var(--line); cursor: pointer; transition: transform .2s; }
+  .swatch:hover { transform: scale(1.1); }
+  .swatch.active { border-color: var(--bg); outline: 2px solid var(--accent); }
+  .config-panel label { color: var(--muted); font-size: .8rem; text-transform: uppercase; letter-spacing: .14em; }
+  .config-panel h3 { font-size: 1.8rem; margin: 6px 0; }
+  .config-total { font-size: 2.2rem; font-weight: 800; margin: 20px 0; }
+
+  /* CTA / CONTACT */
+  .contact-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 56px; border-radius: 28px;
+    background: linear-gradient(135deg, #1b1e25, #12141a); border: 1px solid var(--line);
+  }
+  form { display: grid; gap: 14px; }
+  input, select, textarea {
+    width: 100%; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--bg); color: var(--text); font: inherit;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  .form-msg { color: var(--accent-2); font-size: .9rem; min-height: 1.2em; }
+
+  footer { padding: 40px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid, .config, .contact-box { grid-template-columns: 1fr; }
+    .contact-box { padding: 32px; }
+    nav ul { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+    nav ul.open { display: flex; }
+    nav ul li a { display: block; padding: 16px 4%; }
+    .menu-btn { display: block; }
+    .nav .btn { display: none; }
+    section { padding: 80px 0; }
+  }
 </style>
-
 </head>
-
-
 <body>
 
+<!-- Reusable car silhouette (original generic design) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="sport" viewBox="0 0 600 220">
+      <path d="M30 150 C40 120 90 112 150 104 C190 70 250 52 330 52 C395 52 440 72 470 100 C520 106 560 118 572 146 L575 168 C575 176 568 180 560 180 L532 180 C528 156 506 142 484 142 C460 142 440 158 436 180 L184 180 C180 156 158 142 136 142 C112 142 92 158 88 180 L48 180 C36 180 28 172 30 160 Z" fill="currentColor"/>
+      <path d="M200 102 C232 78 280 66 330 66 C372 66 408 80 432 102 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="180" r="34" fill="#0b0c0f"/><circle cx="136" cy="180" r="20" fill="#3a404d"/>
+      <circle cx="484" cy="180" r="34" fill="#0b0c0f"/><circle cx="484" cy="180" r="20" fill="#3a404d"/>
+      <rect x="540" y="130" width="28" height="8" rx="4" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="suv" viewBox="0 0 600 240">
+      <path d="M36 170 L44 128 C48 112 70 104 100 100 L170 62 C190 52 220 48 260 48 L400 48 C440 48 470 60 492 84 L520 102 C550 108 568 124 570 150 L572 178 C572 186 566 190 558 190 L532 190 C528 164 508 150 484 150 C460 150 440 166 436 190 L184 190 C180 164 160 150 136 150 C112 150 92 166 88 190 L50 190 C42 190 35 182 36 170 Z" fill="currentColor"/>
+      <path d="M185 100 L215 68 C225 62 240 60 258 60 L330 60 L330 100 Z M346 60 L400 60 C420 60 436 68 450 82 L468 100 L346 100 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="190" r="38" fill="#0b0c0f"/><circle cx="136" cy="190" r="22" fill="#3a404d"/>
+      <circle cx="484" cy="190" r="38" fill="#0b0c0f"/><circle cx="484" cy="190" r="22" fill="#3a404d"/>
+      <rect x="544" y="136" width="24" height="9" rx="4" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="sedan" viewBox="0 0 600 210">
+      <path d="M30 148 C36 128 70 120 118 114 C158 82 220 62 292 62 C356 62 410 78 448 108 C510 112 558 124 570 146 L572 164 C572 172 566 176 558 176 L532 176 C528 154 508 140 484 140 C460 140 440 154 436 176 L184 176 C180 154 160 140 136 140 C112 140 92 154 88 176 L46 176 C36 176 28 170 30 160 Z" fill="currentColor"/>
+      <path d="M172 108 C206 84 250 74 294 74 C340 74 384 86 414 108 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="176" r="32" fill="#0b0c0f"/><circle cx="136" cy="176" r="19" fill="#3a404d"/>
+      <circle cx="484" cy="176" r="32" fill="#0b0c0f"/><circle cx="484" cy="176" r="19" fill="#3a404d"/>
+      <rect x="544" y="130" width="24" height="8" rx="4" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="roadster" viewBox="0 0 600 200">
+      <path d="M28 138 C36 118 80 112 150 106 C190 96 232 90 262 92 L300 84 C330 80 352 86 372 98 C440 100 520 108 560 128 L572 150 C574 160 568 166 560 166 L532 166 C528 144 508 130 484 130 C460 130 440 144 436 166 L184 166 C180 144 160 130 136 130 C112 130 92 144 88 166 L46 166 C34 166 26 158 28 148 Z" fill="currentColor"/>
+      <path d="M262 94 L300 86 C322 84 340 88 354 98 L262 98 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="166" r="32" fill="#0b0c0f"/><circle cx="136" cy="166" r="19" fill="#3a404d"/>
+      <circle cx="484" cy="166" r="32" fill="#0b0c0f"/><circle cx="484" cy="166" r="19" fill="#3a404d"/>
+      <rect x="544" y="122" width="26" height="7" rx="3.5" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="hatch" viewBox="0 0 600 220">
+      <path d="M44 160 L50 130 C54 116 76 110 110 106 C140 74 200 52 280 52 C350 52 400 60 430 84 L470 106 C520 110 556 122 566 148 L568 168 C568 176 562 180 554 180 L532 180 C528 158 508 144 484 144 C460 144 440 158 436 180 L184 180 C180 158 160 144 136 144 C112 144 92 158 88 180 L56 180 C48 180 42 172 44 160 Z" fill="currentColor"/>
+      <path d="M150 106 C176 80 220 66 270 66 L270 106 Z M286 66 C336 66 372 74 396 92 L412 106 L286 106 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="180" r="33" fill="#0b0c0f"/><circle cx="136" cy="180" r="20" fill="#3a404d"/>
+      <circle cx="484" cy="180" r="33" fill="#0b0c0f"/><circle cx="484" cy="180" r="20" fill="#3a404d"/>
+      <rect x="540" y="132" width="24" height="9" rx="4" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="pickup" viewBox="0 0 640 240">
+      <path d="M24 164 L28 118 C30 108 38 104 48 104 L250 104 L250 74 C250 64 256 58 266 56 L370 48 C400 48 420 56 436 76 L458 104 C516 108 560 114 590 130 C604 138 610 148 610 162 L612 184 C612 192 606 196 598 196 L570 196 C566 172 546 158 522 158 C498 158 478 172 474 196 L186 196 C182 172 162 158 138 158 C114 158 94 172 90 196 L36 196 C28 196 22 188 24 176 Z" fill="currentColor"/>
+      <path d="M276 100 L276 70 L372 62 C392 62 406 70 418 84 L436 100 Z" fill="#0b0c0f" opacity=".75"/>
+      <rect x="40" y="118" width="196" height="6" rx="3" fill="#0b0c0f" opacity=".35"/>
+      <circle cx="138" cy="196" r="38" fill="#0b0c0f"/><circle cx="138" cy="196" r="23" fill="#3a404d"/>
+      <circle cx="522" cy="196" r="38" fill="#0b0c0f"/><circle cx="522" cy="196" r="23" fill="#3a404d"/>
+      <rect x="584" y="140" width="24" height="9" rx="4" fill="#ffd9a0"/>
+    </symbol>
+    <symbol id="van" viewBox="0 0 600 240">
+      <path d="M40 180 L44 90 C46 72 58 62 76 62 L400 62 C426 62 444 72 458 90 L510 126 C546 134 566 148 568 172 L570 192 C570 200 564 204 556 204 L532 204 C528 180 508 166 484 166 C460 166 440 180 436 204 L184 204 C180 180 160 166 136 166 C112 166 92 180 88 204 L52 204 C44 204 38 196 40 184 Z" fill="currentColor"/>
+      <path d="M80 80 L170 80 L170 128 L72 128 Z M186 80 L290 80 L290 128 L186 128 Z M306 80 L396 80 C412 80 424 86 434 98 L452 128 L306 128 Z" fill="#0b0c0f" opacity=".75"/>
+      <circle cx="136" cy="204" r="36" fill="#0b0c0f"/><circle cx="136" cy="204" r="22" fill="#3a404d"/>
+      <circle cx="484" cy="204" r="36" fill="#0b0c0f"/><circle cx="484" cy="204" r="22" fill="#3a404d"/>
+      <rect x="544" y="150" width="22" height="9" rx="4" fill="#ffd9a0"/>
+    </symbol>
+  </defs>
+</svg>
 
 <header>
-
-<div class="logo">
-DriveRent
-</div>
-
-
-<nav>
-
-<a href="#home">Home</a>
-<a href="#cars">Cars</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-
-</nav>
-
+  <div class="container nav">
+    <a href="#top" class="logo">Aurelio<span>.</span></a>
+    <nav>
+      <ul id="menu">
+        <li><a href="#models">Models</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#configurator">Configure</a></li>
+        <li><a href="#contact">Test Drive</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Book a Drive</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </div>
 </header>
 
-
-
-<section class="hero" id="home">
-
-<div>
-
-<h1>Rent Your Dream Car</h1>
-
-<p>Affordable • Reliable • Fast Car Rental Service</p>
-
-<a class="btn" href="#cars">View Cars</a>
-
-</div>
-
-</section>
-
-
-
-<section id="cars">
-
-<h2 class="title">Available Cars</h2>
-
-
-<div class="cars">
-
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80">
-
-<div class="card-body">
-
-<h3>BMW Sports Car</h3>
-
-<p>Luxury performance vehicle for business and pleasure.</p>
-
-<div class="price">$120 / Day</div>
-
-<button onclick="rent('BMW Sports Car')">
-Rent Now
-</button>
-
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=900&q=80">
-
-<div class="card-body">
-
-<h3>Premium SUV</h3>
-
-<p>Comfortable family SUV with advanced features.</p>
-
-<div class="price">$90 / Day</div>
-
-<button onclick="rent('Premium SUV')">
-Rent Now
-</button>
-
-</div>
-
-</div>
-
-
-
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80">
-
-<div class="card-body">
-
-<h3>Electric Car</h3>
-
-<p>Eco-friendly vehicle with modern technology.</p>
-
-<div class="price">$80 / Day</div>
-
-<button onclick="rent('Electric Car')">
-Rent Now
-</button>
-
-</div>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-<section id="services">
-
-<h2 class="title">Our Services</h2>
-
-
-<div class="services">
-
-<div class="service">
-<h3>24/7 Support</h3>
-<p>Customer assistance anytime.</p>
-</div>
-
-
-<div class="service">
-<h3>Insurance</h3>
-<p>Safe and secure rental experience.</p>
-</div>
-
-
-<div class="service">
-<h3>Airport Pickup</h3>
-<p>Convenient vehicle delivery.</p>
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section class="contact" id="contact">
-
-
-<h2 class="title" style="color:white">
-Contact Us
-</h2>
-
-
-<form onsubmit="sendMessage(event)">
-
-<input placeholder="Your Name" required>
-
-<input type="email" placeholder="Email" required>
-
-<textarea placeholder="Your Message"></textarea>
-
-
-<button>
-Send Message
-</button>
-
-
-</form>
-
-
-</section>
-
-
-
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">New 2027 Collection</div>
+        <h1>Engineered for the <em>thrill</em> of the road.</h1>
+        <p class="lead">Aurelio Motors blends electrified performance, razor-sharp design and everyday luxury into machines that make every journey feel like an event.</p>
+        <div class="hero-actions">
+          <a href="#models" class="btn btn-primary">Explore Models</a>
+          <a href="#configurator" class="btn btn-ghost">Build Yours</a>
+        </div>
+        <div class="stats">
+          <div><strong data-count="2.9" data-dec="1">0</strong><span>0–100 km/h (s)</span></div>
+          <div><strong data-count="620">0</strong><span>Range (km)</span></div>
+          <div><strong data-count="18">0</strong><span>Min fast-charge</span></div>
+        </div>
+      </div>
+      <svg class="hero-car" viewBox="0 0 600 220" style="color:#19e3c1"><use href="#sport"/></svg>
+    </div>
+  </div>
+
+  <!-- MODELS -->
+  <section id="models">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The Lineup</div>
+        <h2>A car for every kind of driver.</h2>
+        <p>From track-ready coupes to family-ready SUVs — all built on our next-generation electric platform.</p>
+      </div>
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-filter="all">All</button>
+        <button class="tab" data-filter="coupe">Coupe</button>
+        <button class="tab" data-filter="suv">SUV</button>
+        <button class="tab" data-filter="sedan">Sedan</button>
+        <button class="tab" data-filter="roadster">Roadster</button>
+        <button class="tab" data-filter="hatch">Hatchback</button>
+        <button class="tab" data-filter="truck">Truck</button>
+        <button class="tab" data-filter="van">Van</button>
+      </div>
+      <div class="cards">
+        <article class="card" data-type="coupe">
+          <div class="card-img"><svg viewBox="0 0 600 220" style="color:#19e3c1"><use href="#sport"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Coupe · Electric</div>
+            <h3>Aurelio Vela GT</h3>
+            <div class="specs"><div><b>2.9s</b>0–100</div><div><b>780 hp</b>Power</div><div><b>620 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$118,000 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="suv">
+          <div class="card-img"><svg viewBox="0 0 600 240" style="color:#6d7cff"><use href="#suv"/></svg></div>
+          <div class="card-body">
+            <div class="tag">SUV · Electric</div>
+            <h3>Aurelio Terra X</h3>
+            <div class="specs"><div><b>4.1s</b>0–100</div><div><b>540 hp</b>Power</div><div><b>580 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$89,500 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="sedan">
+          <div class="card-img"><svg viewBox="0 0 600 210" style="color:#cfd3dc"><use href="#sedan"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Sedan · Hybrid</div>
+            <h3>Aurelio Lumen S</h3>
+            <div class="specs"><div><b>5.2s</b>0–100</div><div><b>410 hp</b>Power</div><div><b>890 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$62,900 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="suv">
+          <div class="card-img"><svg viewBox="0 0 600 240" style="color:#4ade80"><use href="#suv"/></svg></div>
+          <div class="card-body">
+            <div class="tag">SUV · Hybrid</div>
+            <h3>Aurelio Terra Lite</h3>
+            <div class="specs"><div><b>6.0s</b>0–100</div><div><b>320 hp</b>Power</div><div><b>760 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$54,200 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="roadster">
+          <div class="card-img"><svg viewBox="0 0 600 200" style="color:#ff5fa2"><use href="#roadster"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Roadster · Electric</div>
+            <h3>Aurelio Zephyr R</h3>
+            <div class="specs"><div><b>3.2s</b>0–100</div><div><b>690 hp</b>Power</div><div><b>540 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$132,000 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="hatch">
+          <div class="card-img"><svg viewBox="0 0 600 220" style="color:#ffd23f"><use href="#hatch"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Hatchback · Electric</div>
+            <h3>Aurelio Pico</h3>
+            <div class="specs"><div><b>7.1s</b>0–100</div><div><b>210 hp</b>Power</div><div><b>420 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$31,900 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="hatch">
+          <div class="card-img"><svg viewBox="0 0 600 220" style="color:#9b6dff"><use href="#hatch"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Hot Hatch · Electric</div>
+            <h3>Aurelio Pico RS</h3>
+            <div class="specs"><div><b>4.4s</b>0–100</div><div><b>430 hp</b>Power</div><div><b>380 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$46,500 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="truck">
+          <div class="card-img"><svg viewBox="0 0 640 240" style="color:#ff8a3d"><use href="#pickup"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Pickup · Electric</div>
+            <h3>Aurelio Bolt Trail</h3>
+            <div class="specs"><div><b>4.8s</b>0–100</div><div><b>600 hp</b>Power</div><div><b>3.9 t</b>Towing</div></div>
+            <div class="price-row"><div class="price">$72,400 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="van">
+          <div class="card-img"><svg viewBox="0 0 600 240" style="color:#4dd0ff"><use href="#van"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Family Van · Hybrid</div>
+            <h3>Aurelio Orbit</h3>
+            <div class="specs"><div><b>7.8s</b>0–100</div><div><b>290 hp</b>Power</div><div><b>7</b>Seats</div></div>
+            <div class="price-row"><div class="price">$48,700 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+        <article class="card" data-type="sedan">
+          <div class="card-img"><svg viewBox="0 0 600 210" style="color:#6d7cff"><use href="#sedan"/></svg></div>
+          <div class="card-body">
+            <div class="tag">Sedan · Electric</div>
+            <h3>Aurelio Lumen EV</h3>
+            <div class="specs"><div><b>3.6s</b>0–100</div><div><b>670 hp</b>Power</div><div><b>710 km</b>Range</div></div>
+            <div class="price-row"><div class="price">$84,000 <small>from</small></div><a href="#contact" class="link">Test drive →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology" class="features">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Technology</div>
+        <h2>Smarter on every mile.</h2>
+        <p>Every Aurelio ships with the same obsessive attention to power, safety and comfort.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><div class="icon">⚡</div><h4>Ultra-fast charging</h4><p>800V architecture adds up to 300 km of range in just 10 minutes.</p></div>
+        <div class="feature"><div class="icon">🛡️</div><h4>Aurelio Shield</h4><p>360° sensors and predictive braking help prevent collisions before they happen.</p></div>
+        <div class="feature"><div class="icon">🧠</div><h4>Adaptive Drive AI</h4><p>Learns your habits to tune suspension, steering and climate automatically.</p></div>
+        <div class="feature"><div class="icon">📡</div><h4>Over-the-air updates</h4><p>New features and performance gains delivered while your car sleeps.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIGURATOR -->
+  <section id="configurator">
+    <div class="container config">
+      <div class="config-preview">
+        <svg id="configCar" viewBox="0 0 600 220" style="color:#19e3c1"><use href="#sport"/></svg>
+      </div>
+      <div class="config-panel">
+        <div class="eyebrow">Configurator</div>
+        <h3>Vela GT</h3>
+        <label>Paint — <span id="colorName">Aurora Teal</span></label>
+        <div class="swatches" id="swatches">
+          <div class="swatch active" style="background:#19e3c1" data-color="#19e3c1" data-name="Aurora Teal" data-price="0"></div>
+          <div class="swatch" style="background:#6d7cff" data-color="#6d7cff" data-name="Indigo" data-price="1200"></div>
+          <div class="swatch" style="background:#ff5fa2" data-color="#ff5fa2" data-name="Magenta" data-price="1200"></div>
+          <div class="swatch" style="background:#f2f3f6" data-color="#f2f3f6" data-name="Polar White" data-price="0"></div>
+          <div class="swatch" style="background:#ffb02e" data-color="#ffb02e" data-name="Solar Gold" data-price="2500"></div>
+        </div>
+        <label for="pack">Performance pack</label>
+        <select id="pack" style="margin:8px 0 0">
+          <option value="0">Standard — 780 hp</option>
+          <option value="9000">Track Pack — 840 hp (+$9,000)</option>
+          <option value="16000">Hyper Pack — 900 hp (+$16,000)</option>
+        </select>
+        <div class="config-total" id="total">$118,000</div>
+        <a href="#contact" class="btn btn-primary">Reserve Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="eyebrow">Test Drive</div>
+          <h2 style="font-size:2.4rem;line-height:1.1;margin:12px 0 16px;letter-spacing:-.02em">Feel it for yourself.</h2>
+          <p style="color:var(--muted)">Book a private 45-minute test drive at your nearest Aurelio showroom. Our specialists will tailor the route to the car you care about.</p>
+        </div>
+        <form id="form">
+          <input type="text" name="name" placeholder="Full name" required>
+          <input type="email" name="email" placeholder="Email address" required>
+          <select name="model" required>
+            <option value="">Choose a model</option>
+            <option>Vela GT</option><option>Zephyr R</option><option>Terra X</option><option>Terra Lite</option><option>Lumen S</option><option>Lumen EV</option><option>Pico</option><option>Pico RS</option><option>Bolt Trail</option><option>Orbit</option>
+          </select>
+          <textarea name="msg" rows="3" placeholder="Anything we should know?"></textarea>
+          <button class="btn btn-primary" type="submit">Request Test Drive</button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-
-<p>
-© 2026 DriveRent. All Rights Reserved.
-</p>
-
+  <div class="container foot">
+    <div>© <span id="year"></span> Aurelio Motors. Example site — fictional brand.</div>
+    <div>Privacy · Terms · Careers</div>
+  </div>
 </footer>
 
-
-
-
 <script>
+  // Mobile menu
+  const menu = document.getElementById('menu');
+  document.getElementById('menuBtn').onclick = () => menu.classList.toggle('open');
+  menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
 
-function rent(car){
+  // Model filter tabs
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach(t => t.onclick = () => {
+    tabs.forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    const f = t.dataset.filter;
+    document.querySelectorAll('.card').forEach(c =>
+      c.classList.toggle('hide', f !== 'all' && c.dataset.type !== f));
+  });
 
-alert("You selected: " + car + ". Our rental team will contact you.");
+  // Configurator
+  const base = 118000;
+  let colorExtra = 0;
+  const fmt = n => '$' + n.toLocaleString('en-US');
+  const totalEl = document.getElementById('total');
+  const packEl = document.getElementById('pack');
+  const update = () => totalEl.textContent = fmt(base + colorExtra + Number(packEl.value));
+  document.querySelectorAll('.swatch').forEach(s => s.onclick = () => {
+    document.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
+    s.classList.add('active');
+    document.getElementById('configCar').style.color = s.dataset.color;
+    document.getElementById('colorName').textContent = s.dataset.name;
+    colorExtra = Number(s.dataset.price);
+    update();
+  });
+  packEl.onchange = update;
 
-}
+  // Animated counters
+  const counters = document.querySelectorAll('[data-count]');
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = parseFloat(el.dataset.count), dec = Number(el.dataset.dec || 0);
+    const start = performance.now();
+    const tick = now => {
+      const p = Math.min((now - start) / 1400, 1);
+      el.textContent = (end * (1 - Math.pow(1 - p, 3))).toFixed(dec);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    io.unobserve(el);
+  }), { threshold: .6 });
+  counters.forEach(c => io.observe(c));
 
+  // Form (demo only)
+  document.getElementById('form').onsubmit = e => {
+    e.preventDefault();
+    const name = new FormData(e.target).get('name');
+    document.getElementById('formMsg').textContent = `Thanks, ${name}! We'll be in touch shortly.`;
+    e.target.reset();
+  };
 
-function sendMessage(e){
-
-e.preventDefault();
-
-alert("Message sent successfully!");
-
-e.target.reset();
-
-}
-
-
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
-
-
 </body>
 </html> 
